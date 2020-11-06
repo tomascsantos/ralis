@@ -8,7 +8,7 @@ from torch.utils import data
 
 num_classes = 11
 ignore_label = 11
-path = 'datasets/camvid'
+path = '/camvid'
 palette = [128, 128, 128, 128, 0, 0, 192, 192, 128, 128, 64, 128, 0, 0, 192, 128, 128, 0, 192, 128, 128, 64, 64, 128,
            64, 0, 128, 64, 64, 0, 0, 128, 192, 0, 0, 0]
 zero_pad = 256 * 3 - len(palette)
@@ -26,6 +26,7 @@ def colorize_mask(mask):
 def make_dataset(mode, root):
     if mode == "train":
         img_path = os.path.join(root, "train")
+        print("image path is: ", img_path)
         mask_path = os.path.join(root, "trainannot")
     elif mode == "val":
         img_path = os.path.join(root, "val")

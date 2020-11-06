@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
-ckpt_path='/home/casanova/scratch/ckpt_seg'
-data_path='/home/casanova/scratch/'
+ckpt_path='/home/tomas/Documents/cs285/final_proj/ralis_models'
+data_path='/home/tomas/Documents/cs285/final_proj/datasets'
 
-for seed in 20 50 234 77 12
-    do
-    python -u run.py --exp-name 'RALIS_cs_train_seed'$seed --full-res --region-size 128 128 \
-     --snapshot 'best_jaccard_val.pth' --al-algorithm 'ralis' \
-    --ckpt-path $ckpt_path --data-path $data_path \
-    --load-weights --exp-name-toload 'gta_pretraining_cs' \
-    --dataset 'cityscapes' --lr 0.0001 --train-batch-size 16 --val-batch-size 1 --patience 10 \
-    --input-size 256 512 --only-last-labeled --budget-labels 3840  --num-each-iter 256  --rl-pool 20 --seed $seed
-    done
+#for seed in 20 50 234 77 12
+#    do
+#    python -u run.py --exp-name 'RALIS_cs_train_seed'$seed --full-res --region-size 128 128 \
+#     --snapshot 'best_jaccard_val.pth' --al-algorithm 'ralis' \
+#    --ckpt-path $ckpt_path --data-path $data_path \
+#    --load-weights --exp-name-toload 'gta_pretraining_cs' \
+#    --dataset 'cityscapes' --lr 0.0001 --train-batch-size 16 --val-batch-size 1 --patience 10 \
+#    --input-size 256 512 --only-last-labeled --budget-labels 3840  --num-each-iter 256  --rl-pool 20 --seed $seed
+#    done
 
 
 ### Camvid ###
